@@ -110,7 +110,6 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-
 ACCOUNT_LOGOUT_REDIRECT_URL = "/"
 
 LOGIN_REDIRECT_URL = "/zealicon/avatar"
