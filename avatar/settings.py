@@ -113,3 +113,13 @@ AUTHENTICATION_BACKENDS = (
 ACCOUNT_LOGOUT_REDIRECT_URL = "/"
 
 LOGIN_REDIRECT_URL = "/zealicon/avatar"
+
+CURRENT_PATH = os.path.abspath(os.path.dirname(__file__).decode('utf-8'))
+
+MEDIA_ROOT = os.path.join(CURRENT_PATH, 'media').replace('\\','/')
+
+MEDIA_URL = '/media/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]

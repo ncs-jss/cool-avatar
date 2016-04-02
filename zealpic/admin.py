@@ -2,4 +2,6 @@ from django.contrib import admin
 from .models import Zealicon
 
 # Register your models here.
-admin.site.register(Zealicon)
+class ZealiconAdmin(admin.ModelAdmin):
+    list_display = ['user', 'image']
+admin.site.register(Zealicon, ZealiconAdmin)

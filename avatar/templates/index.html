@@ -6,5 +6,8 @@
 <body>
 <h2>Home page for the Zealicon Avatar Django app.</h2>
 {{ image }}
+
+{% if zeal_obj %}
+<img src="{{zeal_obj.image}}">
 </body>
 </html>
