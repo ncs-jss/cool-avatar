@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.core.files import File
 
 from avatar.settings import BASE_DIR
