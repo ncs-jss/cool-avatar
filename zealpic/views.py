@@ -37,7 +37,6 @@ def home(request, template_name = "zeal.html"):
                     r.raw.decode_content = True
                     shutil.copyfileobj(r.raw, f)
                 dp = create_new_dp(request.user.username+'.jpg', request.user.id)
-                set_profile_pic(request.get_host()+dp.image.url, access_token)
             else:
                 return HttpResponse("Image cannot be downloaded. Try some other time.")
             return render(request, template_name, {"zeal_obj": dp})

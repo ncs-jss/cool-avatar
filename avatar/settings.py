@@ -121,3 +121,5 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+ACCOUNT_LOGOUT_ON_GET = True
