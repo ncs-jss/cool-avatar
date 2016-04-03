@@ -12,10 +12,13 @@ from PIL import Image
 import requests
 import shutil
 import os
-# Create your views here.
 
 
-def home(request, template_name = "index.html"):
+def index(request, template_name='index.html'):
+    return render(request, template_name,)
+
+
+def home(request, template_name = "zeal.html"):
     if request.user.is_authenticated():
         user = request.user
         try:
@@ -34,16 +37,16 @@ def home(request, template_name = "index.html"):
                     r.raw.decode_content = True
                     shutil.copyfileobj(r.raw, f)
                 dp = create_new_dp(request.user.username+'.jpg', request.user.id)
+                set_profile_pic(request.get_host()+dp.image.url, access_token)
             else:
                 return HttpResponse("Image cannot be downloaded. Try some other time.")
-            return render(request, template_name, {"image": dp })
-        else:
-            return Http404("Please login to use this service.")
+            return render(request, template_name, {"zeal_obj": dp})
+    else:
+        return Http404("Please login to use this service.")
 
 
 def create_new_dp(img_path, user_id):
     import os, sys
-    from PIL import Image
     img = Image.open(img_path)
     size = img.size[0], img.size[1]
     infile = img.filename
@@ -60,6 +63,7 @@ def create_new_dp(img_path, user_id):
             dp.user_id = user_id
             dp.image.save(img_path, File(open(img_path, 'r')))
             dp.save()
+            os.remove(img_path)
             return dp
         except IOError:
             print "cannot create thumbnail for '%s'" % infile

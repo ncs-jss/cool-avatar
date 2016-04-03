@@ -114,9 +114,7 @@ ACCOUNT_LOGOUT_REDIRECT_URL = "/"
 
 LOGIN_REDIRECT_URL = "/zealicon/avatar"
 
-CURRENT_PATH = os.path.abspath(os.path.dirname(__file__).decode('utf-8'))
-
-MEDIA_ROOT = os.path.join(CURRENT_PATH, 'media').replace('\\','/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 

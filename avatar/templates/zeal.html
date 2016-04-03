@@ -48,9 +48,13 @@
       <div class="center">
       <h4 style="font-weight:300;">Zealiconize yourself and add zeal to you facebook DP</h4>
         <div class="col s4">
+          <img src="{{zeal_obj.image.url}}" width="400" height="400">
           <div class="row">
             <div class="s12 custom-btn">
-                <a class="waves-effect waves-light btn" href="/accounts/facebook/login">Login with Facebook</a>
+                <a class="waves-effect waves-light btn" href="{{ zeal_obj.image.url }}" download><i class="material-icons left">cloud</i>Download Image</a>
+            </div>
+            <div class="s12 custom-btn">
+                <a class="waves-effect waves-light btn" onclick="window.open('http://www.facebook.com/share.php?u={{request.get_host}}{{ zeal_obj.image.url }}','newWin','width=400,height=400')"><i class="material-icons left">share</i>Share On Facebook</a>
             </div>
           </div>
         </div>
