@@ -41,7 +41,7 @@ def home(request, template_name = "zeal.html"):
                 return HttpResponse("Image cannot be downloaded. Try some other time.")
             return render(request, template_name, {"zeal_obj": dp})
     else:
-        return HttpResponse("<h2>Please login to use this service.</h2>")
+        return HttpResponseRedirect("/")
 
 
 def create_new_dp(img_path, user_id):
