@@ -1,0 +1,27 @@
+[1mdiff --git a/avatar/settings.py b/avatar/settings.py[m
+[1mindex f3c5e9f..56cb424 100644[m
+[1m--- a/avatar/settings.py[m
+[1m+++ b/avatar/settings.py[m
+[36m@@ -64,16 +64,16 @@[m [mWSGI_APPLICATION = 'avatar.wsgi.application'[m
+ [m
+ DATABASES = {[m
+     'default': {[m
+[31m-        'ENGINE': 'django.db.backends.postgresql_psycopg2',[m
+[31m-        'NAME': 'avatar',[m
+[32m+[m[32m        'ENGINE': 'django.db.backends.sqlite3',[m
+[32m+[m[32m        'NAME': 'db.sqlite3',[m
+     }[m
+ }[m
+ [m
+[31m-DATABASE_URL = "postgres://deshraj:deshraj_123@localhost:5432/avatar"[m
+[32m+[m[32m# DATABASE_URL = "postgres://deshraj:deshraj_123@localhost:5432/avatar"[m
+ [m
+[31m-import dj_database_url[m
+[31m-db_from_env = dj_database_url.config(conn_max_age=500)[m
+[31m-DATABASES['default'].update(db_from_env)[m
+[32m+[m[32m# import dj_database_url[m
+[32m+[m[32m# db_from_env = dj_database_url.config(conn_max_age=500)[m
+[32m+[m[32m# DATABASES['default'].update(db_from_env)[m
+ [m
+ # Internationalization[m
+ # https://docs.djangoproject.com/en/1.6/topics/i18n/[m
