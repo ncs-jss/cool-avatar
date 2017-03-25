@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Zealicon Avatar</title>
+        <link rel="shortcut icon" type="image/x-icon" href="http://zealicon.in/zeal/images/favicon.ico"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css"/>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'/>
+        <style type="text/css">
+            .nav-wrapper{
+              padding-left:10px;
+            }
+            .brand-logo{
+              font-weight: 300;
+              font-family: roboto;
+            }
+            .custom-btn{
+              padding-top:10px;
+              margin-bottom: 1em;
+            }
+            .btn{
+              color: #B8B8B8 ;
+              background: #1a237e;
+              font-size: 12px;
+              /*width:300px;*/
+            }
+            .btn:hover{
+              color: #fff ;
+              background: #1a237e;
+            }
+            .nav-wrapper{
+              background: #1a237e;
+            }
+            footer.page-footer{
+              background-color: #1a237e;
+              bottom: 0;
+              margin-top: 10%;
+            }
+        
+        
+        
+          </style>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Zealicon Avatar</a>
+                <ul class="right hide-on-med-and-down">
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="#">Hi, {{ request.user.first_name }} {{ request.user.last_name }}</a>
+                    </li>
+                    <li>
+                        <a href="/accounts/logout">Logout</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="center">
+                <h4 style="font-weight:300;">#Feel the zeal</h4>
+                <div class="row">
+                    <div class="col s12 m3">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{ zeal_obj.image.url }}"/>
+                            </div>
+                            <div class="card-action">
+                                <a class="waves-effect waves-light btn" href="{{ zeal_obj.image.url }}" download>
+                                    <i class="material-icons left">cloud</i>
+                                    Download
+                                </a>
+                                <br>
+                                <br>
+                                <a class="waves-effect waves-light btn" onclick="window.open('http://www.facebook.com/share.php?u={{ request.get_host }}{{ zeal_obj.image.url }}','newWin','width=400,height=400')">
+                                    <i class="material-icons left">share</i>
+                                    Share
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m3">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{ zeal_obj.image2.url }}"/>
+                            </div>
+                            <div class="card-action">
+                                <a class="waves-effect waves-light btn" href="{{ zeal_obj.image.url }}" download>
+                                    <i class="material-icons left">cloud</i>
+                                    Download
+                                </a>
+                                <br>
+                                <br>
+                                <a class="waves-effect waves-light btn" onclick="window.open('http://www.facebook.com/share.php?u={{ request.get_host }}{{ zeal_obj.image.url }}','newWin','width=400,height=400')">
+                                    <i class="material-icons left">share</i>
+                                    Share
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m3">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{ zeal_obj.image3.url }}"/>
+                            </div>
+                            <div class="card-action">
+                                <a class="waves-effect waves-light btn" href="{{ zeal_obj.image.url }}" download>
+                                    <i class="material-icons left">cloud</i>
+                                    Download
+                                </a>
+                                <br>
+                                <br>
+                                <a class="waves-effect waves-light btn" onclick="window.open('http://www.facebook.com/share.php?u={{ request.get_host }}{{ zeal_obj.image.url }}','newWin','width=400,height=400')">
+                                    <i class="material-icons left">share</i>
+                                    Share
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m3">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{ zeal_obj.image4.url }}"/>
+                            </div>
+                            <div class="card-action">
+                                <a class="waves-effect waves-light btn" href="{{ zeal_obj.image.url }}" download>
+                                    <i class="material-icons left">cloud</i>
+                                    Download
+                                </a>
+                                <br>
+                                <br>
+                                <a class="waves-effect waves-light btn" onclick="window.open('http://www.facebook.com/share.php?u={{ request.get_host }}{{ zeal_obj.image.url }}','newWin','width=400,height=400')">
+                                    <i class="material-icons left">share</i>
+                                    Share
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © Nibble Computer Society 2017
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

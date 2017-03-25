@@ -18,7 +18,7 @@ def index(request, template_name='index.html'):
     return render(request, template_name,)
 
 
-def home(request, template_name = "zeal.html"):
+def home(request, template_name = "zeal_new.html"):
     if request.user.is_authenticated():
         user = request.user
         try:
