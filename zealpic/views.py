@@ -45,24 +45,35 @@ def home(request, template_name = "zeal.html"):
 
 
 def create_new_dp(img_path, user_id):
-    import os, sys
+    import os, sys, glob
     img = Image.open(img_path)
     size = img.size[0], img.size[1]
     infile = img.filename
     outfile = os.path.splitext(infile)[0] + ".thumbnail"
     if infile != outfile:
-        try:
-            frame = Image.open('static/images/cover.png')
-            frame = frame.resize((size), Image.ANTIALIAS)
-            img_dest = img.copy().convert('RGBA')
-            img_dest.paste(frame, (0, 0, img.size[0], img.size[1]), frame)
-            img_dest = img_dest.convert('RGB')
-            img_dest.save(img_path)
-            dp = Zealicon()
-            dp.user_id = user_id
-            dp.image.save(img_path, File(open(img_path, 'r')))
-            dp.save()
-            os.remove(img_path)
-            return dp
-        except IOError:
-            print "cannot create thumbnail for '%s'" % infile
+        dp = Zealicon()
+        dp.user_id = user_id
+        for cover in glob.glob("/home/rishabh/Documents/cool-avatar/static/avatars/*.png"):
+            try:
+                frame = Image.open(cover)
+                frame = frame.resize((size), Image.ANTIALIAS)
+                img_dest = img.copy().convert('RGBA')
+                img_dest.paste(frame, (0, 0, img.size[0], img.size[1]), frame)
+                img_dest = img_dest.convert('RGB')
+                img_dest.save(img_path)
+                if not dp.image:
+                    dp.image.save(img_path, File(open(img_path, 'r')))
+                    dp.save()      
+                elif not dp.image2:
+                    dp.image2.save(img_path, File(open(img_path, 'r')))
+                    dp.save()
+                elif not dp.image3:
+                    dp.image3.save(img_path, File(open(img_path, 'r')))
+                    dp.save()
+                elif not dp.image4:
+                    dp.image4.save(img_path, File(open(img_path, 'r')))
+                    dp.save()
+            except IOError:
+                print "cannot create thumbnail for '%s'" % infile
+        os.remove(img_path)
+        return dp
