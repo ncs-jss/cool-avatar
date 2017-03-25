@@ -6,4 +6,6 @@ from django.contrib.auth.models import User
 class Zealicon(models.Model):
 	user = models.ForeignKey(User)
 	image = models.ImageField(upload_to='images/')
-
+	image2 = models.ImageField(upload_to='images/', null=True)
+	image3 = models.ImageField(upload_to='images/', null=True)
+	image4 = models.ImageField(upload_to='images/', null=True)
