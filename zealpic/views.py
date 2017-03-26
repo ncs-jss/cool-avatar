@@ -61,10 +61,9 @@ def create_new_dp(img_path, user_id):
         for cover in glob.glob("/home/rishabh/Documents/cool-avatar/static/avatars/*.png"):
             try:
                 frame = Image.open(cover)
+
                 frame = frame.resize((size), Image.ANTIALIAS)
-                print "frame", frame
                 img_dest = img.copy().convert('RGBA')
-                print img_dest
                 img_dest.paste(frame, (0, 0, img.size[0], img.size[1]), frame)
                 img_dest = img_dest.convert('RGB')
                 img_dest.save(img_path)
