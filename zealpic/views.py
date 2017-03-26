@@ -14,7 +14,11 @@ import shutil
 import os
 
 
-def index(request, template_name='index.html'):
+def zealicon(request, template_name='index.html'):
+    return render(request, template_name,)
+
+
+def index(request, template_name='index_new.html'):
     return render(request, template_name,)
 
 
@@ -48,6 +52,7 @@ def create_new_dp(img_path, user_id):
     import os, sys, glob
     img = Image.open(img_path)
     size = img.size[0], img.size[1]
+    print "Image Size", size
     infile = img.filename
     outfile = os.path.splitext(infile)[0] + ".thumbnail"
     if infile != outfile:
@@ -57,7 +62,9 @@ def create_new_dp(img_path, user_id):
             try:
                 frame = Image.open(cover)
                 frame = frame.resize((size), Image.ANTIALIAS)
+                print "frame", frame
                 img_dest = img.copy().convert('RGBA')
+                print img_dest
                 img_dest.paste(frame, (0, 0, img.size[0], img.size[1]), frame)
                 img_dest = img_dest.convert('RGB')
                 img_dest.save(img_path)
